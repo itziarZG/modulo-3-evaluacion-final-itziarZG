@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Route } from "react-router-dom";
 import getDataFromAPI from "./services/getDataFromAPI";
 import { useEffect, useState } from "react";
@@ -6,6 +6,7 @@ import CharacterList from "./components/CharacterList/CharacterList";
 import Loader from "./services/Loader";
 import Filters from "./components/Filters/Filters";
 import CharacterDetail from "./components/CharacterDetail/CharacterDetail";
+import Logo from "./images/Rick_and_Morty_-_logo_(English).png";
 
 function App() {
   //variables estado
@@ -48,7 +49,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Rick and Morty</h1>
+      <h1 className="App__title">Rick and Morty</h1>
+      <img style={{ width: "50%" }} src={Logo} alt="Logo Rick and Morty"></img>
       <Filters value={filterValue} handleFilter={handleFilter} />
       {isLoading ? <Loader /> : <CharacterList data={filterData} />}
       <Route path="/detail/:id" render={handleCharacterDetail} />

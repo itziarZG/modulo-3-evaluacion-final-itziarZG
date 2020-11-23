@@ -1,0 +1,17 @@
+.section__filter {
+  width: 50%;
+  &__input {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    text-align: center;
+    width: auto;
+    color: rgb(74, 197, 228);
+    font-weight: bold;
+    font-family: Get-Schwifty;
+    font-size: large;
+    &::placeholder {
+      color: rgb(2, 240, 42);
+    }
+  }
+}
