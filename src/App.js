@@ -30,10 +30,11 @@ function App() {
 
   //handleCharacterDetail
   const handleCharacterDetail = (props) => {
-    const characterClicked = data.find(
-      (char) => char.id === props.match.params.id
-    );
-    console.log(characterClicked);
+    console.log("entro ruta");
+    const characterClicked = data.find((char) => {
+      return char.id === parseInt(props.match.params.id);
+    });
+    return <CharacterDetail info={characterClicked} />;
   };
 
   const filterData = data.filter((character) => {
@@ -45,7 +46,7 @@ function App() {
       <h1>Rick and Morty</h1>
       <Filters value={filterValue} handleFilter={handleFilter} />
       {isLoading ? <Loader /> : <CharacterList data={filterData} />}
-      <Route path="/detail/:id" render={handleCharacterDetail} />}
+      <Route path="/detail/:id" render={handleCharacterDetail} />
     </div>
   );
 }

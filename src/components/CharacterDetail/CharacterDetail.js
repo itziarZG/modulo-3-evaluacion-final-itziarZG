@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import ModalCard from "./ModalCard";
-const CharacterDetail = (character) => {
-  const { episodes, origin, status, name, id, image, species } = character;
+const CharacterDetail = (props) => {
+  console.log("entro detail", props);
+  const { episodes, origin, status, name, id, image, species } = props.info;
   return (
     <article className="detail__card">
+      <Link to="./" style={{ textDecoration: "none", color: "inherit" }}>
+        {" "}
+        Volver{" "}
+      </Link>
       <img
         className="detail__card--img"
         src={image}
