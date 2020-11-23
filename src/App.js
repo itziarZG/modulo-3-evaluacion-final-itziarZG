@@ -30,13 +30,18 @@ function App() {
 
   //handleCharacterDetail
   const handleCharacterDetail = (props) => {
-    console.log("entro ruta");
     const characterClicked = data.find((char) => {
       return char.id === parseInt(props.match.params.id);
     });
-    return <CharacterDetail info={characterClicked} />;
+    if (characterClicked) {
+      console.log("entronctrdo", characterClicked);
+      return <CharacterDetail info={characterClicked} />;
+    } else {
+      return <p>Character Not Found</p>;
+    }
   };
 
+  //filtrado de datos con info del filtro
   const filterData = data.filter((character) => {
     return character.name.toUpperCase().includes(filterValue.toUpperCase());
   });

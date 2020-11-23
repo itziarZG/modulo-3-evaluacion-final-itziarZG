@@ -1,10 +1,12 @@
 const Filters = (props) => {
   const handleFilter = (ev) => {
-    console.log(ev.target.value);
     props.handleFilter(ev.target.value);
   };
+  const handleFormSubmit = (ev) => {
+    ev.preventDefault();
+  };
   return (
-    <form className="section__filter">
+    <form className="section__filter" onSubmit={handleFormSubmit}>
       <label forhtml="name">
         Buscador:
         <input

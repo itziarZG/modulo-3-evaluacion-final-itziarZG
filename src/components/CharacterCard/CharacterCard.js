@@ -5,23 +5,21 @@ const CharacterCard = (props) => {
   const { name, id, image, species } = props.info;
 
   return (
-    <li className="item__card">
-      <Link
-        to={`/detail/${id}`}
-        style={{ textDecoration: "none", color: "inherit" }}
-      >
-        <img
-          className="item__card--img"
-          src={image}
-          alt={`Foto de ${name}`}
-          title={`Foto de ${name}`}
-        />
-        <div>
-          <h4 className="item__card--title">{name}</h4>
-          <p className="item__card--description">{species}</p>
-        </div>
-      </Link>
-    </li>
+    <Link
+      to={`/detail/${id}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <img
+        className="item__card--img"
+        src={image}
+        alt={`Foto de ${name}`}
+        title={`Foto de ${name}`}
+      />
+      <div>
+        <h4 className="item__card--title">{name}</h4>
+        <p className="item__card--description">{species}</p>
+      </div>
+    </Link>
   );
 };
 

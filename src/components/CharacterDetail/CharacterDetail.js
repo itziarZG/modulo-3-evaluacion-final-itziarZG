@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 // import ModalCard from "./ModalCard";
 const CharacterDetail = (props) => {
-  console.log("entro detail", props);
   const { episodes, origin, status, name, id, image, species } = props.info;
   return (
     <article className="detail__card">
