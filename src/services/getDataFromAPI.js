@@ -1,17 +1,19 @@
 const ENDPOINT =
-  "https://beta.adalab.es/ejercicios-extra/api/eshop/v2/cart.json";
+  "https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json";
 
 const getDataFromAPI = () => {
   return fetch(ENDPOINT)
     .then((response) => response.json())
     .then((data) => {
-      return data.cart.items.map((cart) => {
+      return data.results.map((character) => {
         return {
-          name: cart.name,
-          description: cart.description,
-          url: cart.imageUrl,
-          price: cart.price,
-          sizes: cart.sizes,
+          name: character.name,
+          id: character.id,
+          image: character.image,
+          episodes: character.episode.length,
+          status: character.status,
+          species: character.species,
+          origin: character.origin.name,
         };
       });
     });
