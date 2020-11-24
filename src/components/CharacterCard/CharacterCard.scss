@@ -1,4 +1,7 @@
 .item__card {
+  text-decoration: "none";
+  color: "inherit";
+
   &--img {
     width: 100%;
   }
@@ -9,6 +12,7 @@
     background-color: rgb(3, 173, 159);
   }
   &--title {
+    font-size: 1em;
     padding-bottom: 0.5em;
   }
 

@@ -6,13 +6,11 @@ import Details from "./Details.js";
 import CharacterNotFound from "./CharacterNotFound";
 
 const CharacterDetail = (props) => {
-  console.log(props.info);
-
   return (
     <article className="detail">
       <img className="detail__title" src={Logo} alt="Logo Rick and Morty"></img>
       <div className="detail__card">
-        <Link to="./" className="detail__card__button">
+        <Link to="/" className="detail__card__button">
           {"< "}
           Volver{" "}
         </Link>
@@ -27,8 +25,7 @@ const CharacterDetail = (props) => {
 };
 
 CharacterDetail.propTypes = {
-  /* handleFilter: PropTypes.func.isRequired, */
-  info: PropTypes.object.isRequired,
+  info: PropTypes.object,
 };
 
 export default CharacterDetail;

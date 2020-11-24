@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./CharacterCard.scss";
+
 const CharacterCard = (props) => {
+  //my vars
   const { name, id, image, species } = props.info;
 
   return (
@@ -24,7 +26,6 @@ const CharacterCard = (props) => {
 };
 
 CharacterCard.propTypes = {
-  /* handleFilter: PropTypes.func.isRequired, */
   info: PropTypes.object.isRequired,
 };
 

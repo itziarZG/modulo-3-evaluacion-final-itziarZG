@@ -1,10 +1,13 @@
 import "./Filters.scss";
+import PropTypes from "prop-types";
 
 const Filters = (props) => {
+  //lifting with input value
   const handleFilter = (ev) => {
     props.handleFilter(ev.target.value);
   };
 
+  //prevent reload
   const handleFormSubmit = (ev) => {
     ev.preventDefault();
   };
@@ -21,4 +24,9 @@ const Filters = (props) => {
     </form>
   );
 };
+
+Filters.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+};
+
 export default Filters;

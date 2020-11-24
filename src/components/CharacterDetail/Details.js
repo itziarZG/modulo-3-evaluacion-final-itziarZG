@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Details(props) {
   const { episodes, origin, status, name, id, image, species } = props.info;
   return (
@@ -33,3 +35,7 @@ function Details(props) {
   );
 }
 export default Details;
+
+Details.propTypes = {
+  info: PropTypes.object,
+};

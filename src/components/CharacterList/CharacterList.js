@@ -4,6 +4,7 @@ import FilterEmpty from "../Filters/FilterEmtpy";
 import "./CharacterList.scss";
 
 const CharacterList = (props) => {
+  //array can be empty if there's no character with that name.
   let ListIsEmpty = false;
   if (props.data.length === 0) {
     ListIsEmpty = true;
