@@ -7,6 +7,7 @@ import Loader from "./services/Loader";
 import Filters from "./components/Filters/Filters";
 import CharacterDetail from "./components/CharacterDetail/CharacterDetail";
 import Logo from "./images/Rick_and_Morty_-_logo_(English).png";
+import CharacterNotFound from "./components/CharacterNotFound/CharacterNotFound.js";
 
 function App() {
   //variables estado
@@ -35,10 +36,9 @@ function App() {
       return char.id === parseInt(props.match.params.id);
     });
     if (characterClicked) {
-      console.log("entronctrdo", characterClicked);
       return <CharacterDetail info={characterClicked} />;
     } else {
-      return <p>Character Not Found</p>;
+      return <CharacterNotFound>Character Not Found</CharacterNotFound>;
     }
   };
 
@@ -53,7 +53,8 @@ function App() {
       <img style={{ width: "50%" }} src={Logo} alt="Logo Rick and Morty"></img>
       <Filters value={filterValue} handleFilter={handleFilter} />
       {isLoading ? <Loader /> : <CharacterList data={filterData} />}
-      <Route path="/detail/:id" render={handleCharacterDetail} />
+      <Route exact path="/detail/:id" render={handleCharacterDetail} />
+      {/* <Route path="/detail/" component={Loader} /> */}
     </div>
   );
 }

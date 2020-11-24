@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { HashRouter } from "react-router-dom";
-import "./get_schwifty.ttf";
+import "./font/get_schwifty.ttf";
 
 ReactDOM.render(
   <HashRouter>
