@@ -1,0 +1,15 @@
+.item__card {
+  &--img {
+    width: 100%;
+  }
+
+  &--texts {
+    padding: 0.5em;
+    color: white;
+    background-color: rgb(3, 173, 159);
+  }
+
+  @media all and (min-width: 321px) {
+    font-size: 1.5vw;
+  }
+}

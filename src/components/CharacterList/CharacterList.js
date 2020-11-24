@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import FilterEmpty from "../Filters/FilterEmtpy";
-// import "./UserList.scss";
+import "./CharacterList.scss";
 
 const CharacterList = (props) => {
   let isEmpty = false;
@@ -12,11 +12,11 @@ const CharacterList = (props) => {
   return isEmpty ? (
     <FilterEmpty />
   ) : (
-    <section className="Characters">
-      <ul className="Characters__list">
+    <section className="section-Characters">
+      <ul className="section-Characters__list">
         {props.data.map((character) => {
           return (
-            <li className="Characters__list__card" key={character.id}>
+            <li className="section-Characters__list__card" key={character.id}>
               <CharacterCard info={character} />
             </li>
           );

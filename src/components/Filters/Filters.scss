@@ -1,15 +1,15 @@
 .section__filter {
   width: 50%;
+  display: flex;
+  justify-content: center;
   &__input {
-    display: flex;
-    justify-content: center;
     background-color: black;
     text-align: center;
-    width: auto;
+    width: 80%;
     color: rgb(74, 197, 228);
     font-weight: bold;
     font-family: Get-Schwifty;
-    font-size: large;
+    font-size: 4vw;
     &::placeholder {
       color: rgb(2, 240, 42);
     }

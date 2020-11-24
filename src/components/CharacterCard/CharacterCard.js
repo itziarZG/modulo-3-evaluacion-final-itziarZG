@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
+import "./CharacterCard.scss";
 const CharacterCard = (props) => {
   const { name, id, image, species } = props.info;
 
@@ -15,7 +15,7 @@ const CharacterCard = (props) => {
         alt={`Foto de ${name}`}
         title={`Foto de ${name}`}
       />
-      <div>
+      <div className="item__card--texts">
         <h4 className="item__card--title">{name}</h4>
         <p className="item__card--description">{species}</p>
       </div>

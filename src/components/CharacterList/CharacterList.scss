@@ -1,0 +1,22 @@
+.section-Characters__list {
+  padding: 10px 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  row-gap: 1em;
+
+  &__card {
+    max-width: 250px;
+  }
+
+  @media all and (min-width: 550px) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+  }
+  @media all and (min-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media all and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
