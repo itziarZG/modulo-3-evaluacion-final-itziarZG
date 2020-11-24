@@ -4,12 +4,11 @@ import FilterEmpty from "../Filters/FilterEmtpy";
 import "./CharacterList.scss";
 
 const CharacterList = (props) => {
-  let isEmpty = false;
+  let ListIsEmpty = false;
   if (props.data.length === 0) {
-    isEmpty = true;
+    ListIsEmpty = true;
   }
-  console.log("is empty", isEmpty);
-  return isEmpty ? (
+  return ListIsEmpty ? (
     <FilterEmpty />
   ) : (
     <section className="section-Characters">

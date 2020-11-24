@@ -4,6 +4,7 @@ const Filters = (props) => {
   const handleFilter = (ev) => {
     props.handleFilter(ev.target.value);
   };
+
   const handleFormSubmit = (ev) => {
     ev.preventDefault();
   };

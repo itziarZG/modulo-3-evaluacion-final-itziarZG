@@ -7,7 +7,6 @@ import Loader from "./services/Loader";
 import Filters from "./components/Filters/Filters";
 import CharacterDetail from "./components/CharacterDetail/CharacterDetail";
 import Logo from "./images/Rick_and_Morty_-_logo_(English).png";
-import CharacterNotFound from "./components/CharacterNotFound/CharacterNotFound.js";
 
 function App() {
   //variables estado
@@ -35,18 +34,25 @@ function App() {
     const characterClicked = data.find((char) => {
       return char.id === parseInt(props.match.params.id);
     });
-    if (characterClicked) {
-      return <CharacterDetail info={characterClicked} />;
-    } else {
-      return <CharacterNotFound>Character Not Found</CharacterNotFound>;
-    }
+    return <CharacterDetail info={characterClicked} />;
   };
 
-  //filtrado de datos con info del filtro
-  const filterData = data.filter((character) => {
-    return character.name.toUpperCase().includes(filterValue.toUpperCase());
-  });
-
+  //filtrado de datos con info del filtro y ordenación
+  const filterData = data
+    .filter((character) => {
+      return character.name.toUpperCase().includes(filterValue.toUpperCase());
+    })
+    .sort((charA, charB) => {
+      if (charA.name > charB.name) {
+        return 1;
+      }
+      if (charA.name < charB.name) {
+        return -1;
+      }
+      // charA must be equal to charB
+      return 0;
+    });
+  console.log(filterData);
   return (
     <div className="App">
       <h1 className="App__title">Rick and Morty</h1>

@@ -16,7 +16,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  min-height: 100vh;
+  height: fit-content;
   &__title {
     display: none;
     &__img {
