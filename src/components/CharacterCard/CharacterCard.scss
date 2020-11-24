@@ -8,6 +8,9 @@
     color: white;
     background-color: rgb(3, 173, 159);
   }
+  &--title {
+    padding-bottom: 0.5em;
+  }
 
   @media all and (min-width: 321px) {
     font-size: 1.5vw;
