@@ -52,7 +52,7 @@ function App() {
       // charA must be equal to charB
       return 0;
     });
-  console.log(filterData);
+
   return (
     <div className="App">
       <h1 className="App__title">Rick and Morty</h1>
