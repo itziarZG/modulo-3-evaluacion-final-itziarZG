@@ -7,6 +7,7 @@ import Loader from "./services/Loader";
 import Filters from "./components/Filters/Filters";
 import CharacterDetail from "./components/CharacterDetail/CharacterDetail";
 import Logo from "./images/Rick_and_Morty_-_logo_(English).png";
+import CharacterNotFound from "./components/CharacterDetail/CharacterNotFound";
 
 function App() {
   //STATE VARS
@@ -40,7 +41,14 @@ function App() {
     const characterClicked = data.find((char) => {
       return char.id === parseInt(props.match.params.id);
     });
-    return <CharacterDetail info={characterClicked} />;
+    if (props.match.params.id > 20 || props.match.params.id <= 0)
+      return <CharacterNotFound text="Character not Found" />;
+    else
+      return !!characterClicked ? (
+        <CharacterDetail info={characterClicked} />
+      ) : (
+        <Loader />
+      );
   };
 
   // FILTER CHARACTER AND SORT LIST BEFORE PAINTING
