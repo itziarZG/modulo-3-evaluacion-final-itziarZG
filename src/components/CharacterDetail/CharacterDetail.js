@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./CharacterDetail.scss";
 import Logo from "../../images/Rick_and_Morty_-_logo_(English).png";
+import deadLogo from "../../images/dead.jpg";
 
 const CharacterDetail = (props) => {
   const { episodes, origin, status, name, image, species } = props.info;
@@ -25,7 +26,11 @@ const CharacterDetail = (props) => {
             <ul>
               <li>
                 <span className="bold">Status: </span>
-                {status}
+                {status === "Alive" ? (
+                  "Alive"
+                ) : (
+                  <img className="detail__card--dead" src={deadLogo}></img>
+                )}
               </li>
               <li>
                 <span className="bold">Species: </span>

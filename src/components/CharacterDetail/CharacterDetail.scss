@@ -23,6 +23,9 @@
     height: 30vh;
     display: flex;
     flex-direction: column;
+    &--dead {
+      width: 1em;
+    }
 
     &__button {
       text-decoration: "none";
