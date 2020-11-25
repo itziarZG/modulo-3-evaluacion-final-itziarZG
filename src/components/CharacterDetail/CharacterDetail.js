@@ -26,10 +26,10 @@ const CharacterDetail = (props) => {
             <ul>
               <li>
                 <span className="bold">Status: </span>
-                {status === "Alive" ? (
-                  "Alive"
-                ) : (
+                {status === "Dead" ? (
                   <img className="detail__card--dead" src={deadLogo}></img>
+                ) : (
+                  `${status}`
                 )}
               </li>
               <li>
