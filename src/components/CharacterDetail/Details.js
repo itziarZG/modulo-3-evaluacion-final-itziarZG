@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 function Details(props) {
-  const { episodes, origin, status, name, id, image, species } = props.info;
+  const { episodes, origin, status, name, image, species } = props.info;
   return (
     <div className="detail__character">
       <img

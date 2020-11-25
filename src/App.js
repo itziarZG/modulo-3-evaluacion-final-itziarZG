@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import getDataFromAPI from "./services/getDataFromAPI";
 import { useEffect, useState } from "react";
 import CharacterList from "./components/CharacterList/CharacterList";
@@ -13,6 +13,7 @@ function App() {
   const [isLoading, setLoading] = useState(true); //true while APi is fetching
   const [data, setData] = useState([]); // empty since API return data
   const [filterValue, setFilterValue] = useState("");
+  const [checkedSort, setCheckedSort] = useState(false);
 
   //GET DATA
   useEffect(() => {
@@ -23,9 +24,15 @@ function App() {
     return;
   }, []);
 
-  //HANDLEFILTER
+  //HANDLEFILTER NAME
   const handleFilter = (dataFilter) => {
     setFilterValue(dataFilter);
+  };
+
+  //HANDLEFILTER SORT
+  const handleFilterSort = (checked) => {
+    if (checked) setCheckedSort(true);
+    else setCheckedSort(false);
   };
 
   //HANDLE URL CHARACTER DETAIL
@@ -36,32 +43,39 @@ function App() {
     return <CharacterDetail info={characterClicked} />;
   };
 
-  // FILTER AND SORT CHARACTER LIST BEFORE PAINTING
-  const filterData = data
-    .filter((character) => {
-      return character.name.toUpperCase().includes(filterValue.toUpperCase());
-    })
-    .sort((charA, charB) => {
-      if (charA.name > charB.name) {
-        return 1;
-      }
-      if (charA.name < charB.name) {
-        return -1;
-      }
-      // charA must be equal to charB
-      return 0;
-    });
+  // FILTER CHARACTER AND SORT LIST BEFORE PAINTING
+  const filterData = data.filter((character) => {
+    return character.name.toUpperCase().includes(filterValue.toUpperCase());
+  });
+  const sortedData = checkedSort
+    ? filterData.sort((charA, charB) => {
+        if (charA.name > charB.name) {
+          return 1;
+        }
+        if (charA.name < charB.name) {
+          return -1;
+        }
+        // charA must be equal to charB
+        return 0;
+      })
+    : filterData;
 
   return (
     <div className="App">
       <h1 className="App__title">Rick and Morty</h1>
       <img style={{ width: "50%" }} src={Logo} alt="Logo Rick and Morty"></img>
-      <Filters value={filterValue} handleFilter={handleFilter} />
-      <Route exact path="/">
-        {isLoading ? <Loader /> : <CharacterList data={filterData} />}
-      </Route>
-      <Route exact path="/detail/:id" render={handleCharacterDetail} />
-      {/* <Route path="/detail/" component={Loader} /> */}
+      <Filters
+        value={filterValue}
+        handleFilter={handleFilter}
+        handleFilterSort={handleFilterSort}
+        checked={checkedSort}
+      />
+      <Switch>
+        <Route exact path="/">
+          {isLoading ? <Loader /> : <CharacterList data={sortedData} />}
+        </Route>
+        <Route exact path="/detail/:id" render={handleCharacterDetail} />
+      </Switch>
     </div>
   );
 }

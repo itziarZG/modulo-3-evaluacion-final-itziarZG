@@ -1,19 +1,32 @@
 .section__filter {
-  width: 50%;
+  margin-top: 1em;
+  margin-bottom: 2em;
   max-width: 600px;
   display: flex;
-  justify-content: center;
-  margin-bottom: 2em;
+  flex-direction: column;
+  align-items: center;
+
+  @media all and (min-width: 550px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
   &__input {
     background-color: black;
     text-align: center;
-    width: 80%;
+    width: 50%;
     color: rgb(74, 197, 228);
     font-weight: bold;
     font-family: Get-Schwifty;
     font-size: 4vw;
+    margin-right: 10px;
     &::placeholder {
       color: rgb(2, 240, 42);
     }
+  }
+  &__label {
+    font-family: Get-Schwifty;
+    font-size: 3vw;
+    color: rgb(74, 197, 228);
   }
 }

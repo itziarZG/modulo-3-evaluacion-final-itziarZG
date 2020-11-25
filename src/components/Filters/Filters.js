@@ -1,32 +1,32 @@
 import "./Filters.scss";
 import PropTypes from "prop-types";
+import FilterName from "./FilterName";
+import FilterSort from "./FilterSort";
+import React from "react";
 
 const Filters = (props) => {
-  //lifting with input value
-  const handleFilter = (ev) => {
-    props.handleFilter(ev.target.value);
-  };
-
   //prevent reload
   const handleFormSubmit = (ev) => {
     ev.preventDefault();
   };
   return (
-    <form className="section__filter" onSubmit={handleFormSubmit}>
-      <input
-        className="section__filter__input"
-        type="text"
-        name="name"
-        placeholder="¿a quién buscas?"
-        value={props.value}
-        onChange={handleFilter}
-      ></input>
-    </form>
+    <React.Fragment>
+      <form className="section__filter" onSubmit={handleFormSubmit}>
+        <FilterName value={props.value} handleFilter={props.handleFilter} />
+        <FilterSort
+          handleFilterSort={props.handleFilterSort}
+          checked={props.checked}
+        />
+      </form>
+    </React.Fragment>
   );
 };
 
 Filters.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
+  handleFilter: PropTypes.func.isRequired,
+  handleFilterSort: PropTypes.func.isRequired,
+  checked: PropTypes.bool.isRequired,
 };
 
 export default Filters;
