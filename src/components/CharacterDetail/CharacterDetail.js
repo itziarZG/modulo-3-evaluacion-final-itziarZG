@@ -5,7 +5,7 @@ import Logo from "../../images/Rick_and_Morty_-_logo_(English).png";
 import deadLogo from "../../images/dead.jpg";
 
 const CharacterDetail = (props) => {
-  const { episodes, origin, status, name, image, species } = props.info;
+  const { episodes, origin, status, id, name, image, species } = props.info;
   return (
     <article className="detail">
       <img className="detail__title" src={Logo} alt="Logo Rick and Morty"></img>
@@ -14,6 +14,7 @@ const CharacterDetail = (props) => {
           {"< "}
           Volver{" "}
         </Link>
+
         <div className="detail__character">
           <img
             className="detail__character--img"
@@ -46,6 +47,12 @@ const CharacterDetail = (props) => {
               </li>
             </ul>
           </div>
+          <Link to={`/detail/${id - 1}`} className="detail__card__button">
+            {"< "}
+          </Link>
+          <Link to={`/detail/${id + 1}`} className="detail__card__button">
+            {"> "}
+          </Link>
         </div>
       </div>
     </article>
